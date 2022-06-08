@@ -31,4 +31,3 @@ data class IPDataResponse(
     @field:SerializedName("longitude")
     val longitude: Double
 )
-

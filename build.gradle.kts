@@ -4,6 +4,7 @@ plugins {
     kotlin("jvm") version "1.6.21"
     `java-gradle-plugin`
     `maven-publish`
+    id("org.jlleitschuh.gradle.ktlint") version "10.3.0"
 }
 
 group = "com.flexicondev"
@@ -11,7 +12,10 @@ version = "1.0-SNAPSHOT"
 
 repositories {
     mavenCentral()
-    mavenLocal()
+}
+
+ktlint {
+    version.set("0.45.2")
 }
 
 dependencies {
