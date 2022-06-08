@@ -19,9 +19,7 @@ data class WeatherDataResponse(
     val current: WeatherData
 ) {
 
-    override fun toString(): String {
-        return "${temperature()} ${weatherEmoji()}  ${weatherDescription()}"
-    }
+    override fun toString(): String = "${temperature()} ${weatherEmoji()}  ${weatherDescription()}"
 
     private fun temperature(): String = "${current.temperature}°C"
 
