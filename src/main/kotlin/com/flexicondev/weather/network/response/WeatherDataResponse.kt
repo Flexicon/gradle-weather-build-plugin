@@ -1,7 +1,7 @@
 package com.flexicondev.weather.network.response
 
-import com.flexicondev.weather.util.weatherCodeDescription
-import com.flexicondev.weather.util.weatherCodeEmoji
+import com.flexicondev.weather.domain.weatherCodeDescription
+import com.flexicondev.weather.domain.weatherCodeEmoji
 import com.google.gson.annotations.SerializedName
 
 data class WeatherDataResponse(
@@ -23,9 +23,9 @@ data class WeatherDataResponse(
 
     private fun temperature(): String = "${current.temperature}°C"
 
-    private fun weatherDescription(): String = weatherCodeDescription(current.weatherCode)
+    private fun weatherDescription(): String = current.weatherCode.weatherCodeDescription()
 
-    private fun weatherEmoji(): String = weatherCodeEmoji(current.weatherCode)
+    private fun weatherEmoji(): String = current.weatherCode.weatherCodeEmoji()
 
     data class WeatherData(
 

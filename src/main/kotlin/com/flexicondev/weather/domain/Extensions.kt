@@ -1,14 +1,13 @@
-package com.flexicondev.weather.util
+package com.flexicondev.weather.domain
 
 /**
- * Interprets the given WMO weather [code] and returns its related weather description.
+ * Interprets the [Int] as a WMO weather code and returns its related weather description.
  *
  * [List of codes](https://open-meteo.com/en/docs).
  *
- * @param code WMO weather code.
  * @return An interpreted weather description.
  */
-fun weatherCodeDescription(code: Int): String = when (code) {
+fun Int.weatherCodeDescription(): String = when (this) {
     1, 2, 3 -> "Mainly clear, partly cloudy, and overcast"
     45, 48 -> "Fog and depositing rime fog"
     51, 53, 55 -> "Drizzle: Light, moderate, and dense intensity"
@@ -25,14 +24,13 @@ fun weatherCodeDescription(code: Int): String = when (code) {
 }
 
 /**
- * Interprets the given WMO weather [code] and returns its nearest
+ * Interprets the [Int] as a WMO weather code and returns its nearest
  * related weather description emoji.
  *
  * @see weatherCodeDescription
- * @param code WMO weather code.
  * @return An interpreted weather description emoji.
  */
-fun weatherCodeEmoji(code: Int): String = when (code) {
+fun Int.weatherCodeEmoji(): String = when (this) {
     0, 1, 2, 3 -> "🌤"
     45, 48 -> "🌥"
     51, 53, 55, 56, 57 -> "🌦"
