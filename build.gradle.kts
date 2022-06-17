@@ -30,7 +30,7 @@ dependencies {
 
 gradlePlugin {
     plugins {
-        create("simplePlugin") {
+        create("weatherBuildPlugin") {
             id = "com.flexicondev.weather"
             implementationClass = "com.flexicondev.weather.WeatherBuildPlugin"
         }
