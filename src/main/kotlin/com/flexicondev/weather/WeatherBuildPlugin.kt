@@ -3,7 +3,6 @@ package com.flexicondev.weather
 import com.flexicondev.weather.network.IPApi
 import com.flexicondev.weather.network.WeatherApi
 import kotlinx.coroutines.runBlocking
-import org.gradle.api.Action
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.api.logging.Logger
@@ -15,7 +14,10 @@ class WeatherBuildPlugin : Plugin<Project> {
 
     override fun apply(target: Project) {
         target.tasks.register("weather") {
-            it.actions.add(Action { runMainAction(target) })
+            it.group = "weather"
+            it.description = "Check local weather based on your IP geolocation"
+
+            it.doLast { runMainAction(target) }
         }
 
         target.tasks.findByName("build").apply {
