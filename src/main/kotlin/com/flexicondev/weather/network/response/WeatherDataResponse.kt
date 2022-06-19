@@ -6,9 +6,6 @@ import com.google.gson.annotations.SerializedName
 
 data class WeatherDataResponse(
 
-    @field:SerializedName("elevation")
-    val elevation: Int,
-
     @field:SerializedName("latitude")
     val latitude: Double,
 
@@ -32,16 +29,7 @@ data class WeatherDataResponse(
         @field:SerializedName("weathercode")
         val weatherCode: Int,
 
-        @field:SerializedName("winddirection")
-        val windDirection: Int,
-
-        @field:SerializedName("windspeed")
-        val windSpeed: Double,
-
         @field:SerializedName("temperature")
-        val temperature: Double,
-
-        @field:SerializedName("time")
-        val time: String
+        val temperature: Double
     )
 }
