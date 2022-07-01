@@ -12,6 +12,8 @@ class WeatherBuildPlugin : Plugin<Project> {
 
     private val weatherApi = WeatherApi.create()
 
+    private val forecastFetcher = ForecastFetcher(ipApi, weatherApi)
+
     override fun apply(target: Project) {
         target.tasks.register("weather") {
             it.group = "weather"
@@ -28,14 +30,11 @@ class WeatherBuildPlugin : Plugin<Project> {
     private fun runMainAction(target: Project) = runBlocking {
         with(target.logger) {
             try {
-                quiet(fetchWeatherForecast())
+                quiet(forecastFetcher.fetchForecast())
             } catch (e: Exception) {
                 warn("No weather data to display. See debug log for more information.")
                 debug("Failed to print weather data: $e")
             }
         }
     }
-
-    private suspend fun fetchWeatherForecast(): String =
-        ForecastFetcher(ipApi, weatherApi).fetchForecast()
 }
