@@ -1,6 +1,6 @@
 package com.flexicondev.weather.network
 
-import com.flexicondev.weather.network.response.WeatherDataResponse
+import com.flexicondev.weather.network.response.ForecastResponse
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
@@ -14,7 +14,7 @@ interface WeatherApi {
         latitude: Double,
         @Query("longitude")
         longitude: Double,
-    ): WeatherDataResponse
+    ): ForecastResponse
 
     companion object {
         private const val BASE_URL = "https://api.open-meteo.com/v1/"
